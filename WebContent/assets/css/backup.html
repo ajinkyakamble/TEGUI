@@ -1,0 +1,233 @@
+<div class="row logo" style="text-align: center">
+		<div class="col-md-12 margin-bottom-30"><img src="../../assets/images/bestforeignexchange_logo.png"></div>
+	</div>
+
+
+<div class="login-card mdl-grid mdl-layout-spacer" >
+  <div class="mdl-card mdl-cell mdl-cell--4-col mdl-cell--4-col-tablet mdl-shadow--8dp width" >
+  		<div class="mdl-card__title">
+    	<h2 class="mdl-card__title-text">Welcome Administrator</h2>
+  		</div>
+
+  		<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label margin-top-20">
+    			<input class="mdl-textfield__input" type="text" id="sample3" ng-model="user.name">
+    			<label class="mdl-textfield__label" for="sample3">Username</label>
+ 		</div>
+
+ 		<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+    			<input class="mdl-textfield__input" type="text" id="sample3" ng-model="user.password">
+    			<label class="mdl-textfield__label" for="sample3">Password</label>
+ 		</div>
+
+ 		<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" ng-click="checkUser(user)">
+  		LOGIN
+		</button>
+
+		<span class="link-tabs">
+		<a class="forgot-pass">
+      	FORGOT PASSWORD? 
+    	</a>
+    	<a class="new-user">
+      	NEW USER? 
+    	</a>
+    	</span>
+  </div>
+</div>
+
+
+<div style="text-align: center; color: red; font-size: 20px;">{{error}}</div>
+
+
+
+
+
+
+
+
+.container-style{
+  width: 31%;
+  text-align: center;
+  
+    padding-top: 7%;
+}
+.login-box{
+  box-shadow: 0px 0px 13px 1px #9f9494;
+  
+}
+
+.welcome-box{
+  background-color: #005696;
+    margin-right: 0px !important;
+    margin-left: 0px !important;
+    font-size: 27px;
+    text-align: left;
+    color: #ffffff;
+    box-shadow: 0 2px 3px 0px #908888;
+    font-family: 'Roboto:300', sans-serif;
+    font-weight: 300;
+  }
+
+
+.login-btn{
+  border-radius: 0px !important;
+      height: 45px !important;
+  background-color: #005696 !important;
+}
+
+.credentials-style::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+    color: #9E9E9E;
+}
+
+.background {
+  background-image: url("../images/currency-gbp.png");
+}
+
+.input-box{
+ background-color: #ffffff !important;  
+ margin-right: 0px !important;
+    margin-left: 0px !important;
+}
+
+.forgot-password-text{
+font-family: 'Roboto:700', sans-serif;
+  font-weight: 700;
+  color: #005696;
+  font-size: 11pt;
+  text-align: left !important;
+  cursor: pointer;
+}
+
+.no-margin{
+   margin-right: 0px !important;
+    margin-left: 0px !important;
+}
+
+.header{
+  background-color: #005696;
+  height: 15%;
+}
+
+.exchange-text{
+      color: #ffffff;
+    font-size: 22px;
+}
+
+.mdl-textfield {
+    position: relative;
+    left: 4% !important;
+    font-size: 16px;
+    display: inline-block;
+    box-sizing: border-box;
+    width: 452px !important;
+    max-width: 100%;
+    padding: 20px 0;
+    /* color: red; */
+}
+
+  .mdl-textfield--floating-label.is-focused .mdl-textfield__label,
+  .mdl-textfield--floating-label.is-dirty .mdl-textfield__label,
+  .mdl-textfield--floating-label.has-placeholder .mdl-textfield__label {
+    color: #005696 !important;
+    font-size: 14px !important;
+    top: 4px;
+    visibility: visible; }
+
+.mdl-textfield__label:after {
+    background-color: #005696 !important;
+}
+.mdl-textfield__label{
+  color: #9E9E9E !important;
+  font-size: 19px !important;
+}
+
+
+.mdl-textfield__input {
+   
+    padding: 6px 0 !important;
+}
+
+.login-card > .mdl-card{
+  left: 35% !important;
+  border: 1px solid #807a7a;
+}
+
+.login-card > .mdl-card > .mdl-card__title {
+  color: #fff;
+  height: 115px;
+  background-color: #005696;
+  font-size: 14px;
+}
+
+.login-card > .mdl-card > .mdl-card__title > .mdl-card__title-text{
+  font-size: 34px;
+}
+
+.width{
+      width: calc(30.333333% - 16px) !important;
+}
+
+.login-card > .mdl-card > .mdl-button--accent.mdl-button--accent.mdl-button--raised, .mdl-button--accent.mdl-button--accent.mdl-button--fab {
+    color: #fff;
+    background-color: #005696;
+      width: 91% !important;
+    left: 4% !important;
+    height: 6%;
+    font-size: 15px;
+}
+
+.login-card > .mdl-card > .mdl-button.mdl-button--colored {
+    color: #005696;
+
+}
+
+.login-card > .mdl-card > .link-tabs > .forgot-pass{
+  margin-left: 4% !important;
+    width: 40% !important;
+    font-size: 15px;
+    color: #005696;
+    float: left;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.login-card > .mdl-card > .link-tabs > .new-user{
+ left: 4% !important;
+    width: 18% !important;
+    font-size: 15px;
+    color: #005696;
+    font-weight: 700;
+    cursor: pointer;
+  
+}
+
+.login-card > .mdl-card > .link-tabs{
+  margin: 25px 0px;
+}
+
+.logo{
+  padding-top: 7%;
+  text-align: center;
+}
+.header-card{
+  height: 13%;
+  background-color: #005696;
+
+}
+
+.header-card > .header-title{
+  font-size: 28px;
+    color: #ffffff;
+    font-weight: 100;
+    margin-top: 1.5%;
+    font-family: 'Roboto', sans-serif;
+}
+
+.header-card > .user-header-title{
+  font-size: 25px;
+    color: #ffffff;
+    font-weight: 400;
+    margin-top: 1.5%;
+    position: relative;
+    left: 5%;
+    font-family: 'Roboto', sans-serif;
+}

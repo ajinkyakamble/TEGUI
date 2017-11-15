@@ -1,0 +1,337 @@
+<div class="loader" ng-if="showloader"></div>
+<div class="row no-margin background" ng-hide="hideexchangerates">
+
+
+
+  <div class="col-xs-12 table-style" ng-if="!showloader">
+
+    <div class="col-xs-12 no-margin tableHeader scrollbar no-padding" id="firstScroll">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th class="t1"></th>
+            <th class="t2">Order</th>
+            <th class="t3">Country</th>
+            <th class="t4">Currency</th>
+            <th class="t5">Message</th>
+            <th class="t6">Flag Image</th>
+            <th class="t7">Buying Rate</th>
+            <th class="t8">Selling Rate</th>
+            <th class="t9">
+              <div class="height">Currency Type</div>
+            </th>
+            <th class="t10">
+              <div class="height">Smallest Denomination</div>
+            </th>
+            <th>At Home</th>
+            <th>Status</th>
+            <th>
+              <div class="">Stock </br>Available</div>
+            </th>
+          </tr>
+        </thead>
+      </table>
+    </div>
+    <div class="col-xs-12 no-margin div-body scrollbar white-background no-padding" id="secondScroll">
+      <fieldset ng-disabled="readonly">
+        <table class="table table-bordered margin-top-0">
+          <tbody>
+            <tr ng-repeat="exchangerates in getExchangeRates">
+              <td class="t1">{{exchangerates.id}}</td>
+              <td class="t2">
+                <input type="text" class="form-control display_padding" ng-model="exchangerates.displayOrder">
+              </td>
+              <td class="t3">
+                <div>
+                  <input type="text" class="form-control" ng-model="exchangerates.countryName">
+                  <div>
+              </td>
+              <td class="t4">
+                <div>
+                  <input type="text" class="form-control" ng-model="exchangerates.currencyName">
+                </div>
+              </td>
+              <td class="t5">
+                <div>
+                  <input type="text" class="form-control" ng-model="exchangerates.countryMessage" placeholder="No message available">
+                </div>
+              </td>
+              <td class="t6">
+                <input type="text" class="form-control" ng-model="exchangerates.flagImage">
+              </td>
+              <td class="t7">
+                <input type="text" class="form-control" ng-model="exchangerates.buyingRate">
+              </td>
+              <td class="t8">
+                <input type="text" class="form-control" ng-model="exchangerates.sellingRate">
+              </td>
+              <td class="t9">
+                <input type="text" class="form-control" ng-model="exchangerates.currencyType">
+              </td>
+              <td class="t10">
+                <input type="text" class="form-control" ng-model="exchangerates.smallestNote">
+              </td>
+
+              <td class="">
+                <input id="{{exchangerates.id}}a" type="checkbox" class="" ng-model="exchangerates.atHome" ng-true-value="1" ng-false-value="0" ng-checked="exchangerates.atHome == 1" />
+                <label for="{{exchangerates.id}}a" class=""></label>
+              </td>
+              <td class=" ">
+                <input id="{{exchangerates.id}}b" type="checkbox" class="" ng-model="exchangerates.status" ng-true-value="1" ng-false-value="0" ng-checked="exchangerates.status == 1" />
+                <label for="{{exchangerates.id}}b" class=""></label>
+              </td>
+              <td class=" ">
+                <input id="{{exchangerates.id}}c" type="checkbox" class="" ng-model="exchangerates.stockAvailable" ng-checked="exchangerates.stockAvailable == true" />
+                <label for="{{exchangerates.id}}c" class=""></label>
+              </td>
+
+<!--  <td class="edit-menu">
+      <div class="dropdown">
+        <div class="glyphicon glyphicon-option-vertical"></div>
+        <div class="dropdown-content">
+          <span data-toggle="modal" data-target="#myModal">EDIT</span>
+        </div>
+      </div>
+      <div><input type="text" class="form-control" ng-model="exchangerates.formattedDate"></div>
+      </td>
+      </tr>
+ -->
+
+
+          </tbody>
+
+        </table>
+      </fieldset>
+      </div>
+      </div>
+
+    <div class="col-xs-12 text-center upload-btn">
+
+        <div class="dropdown" id="test">
+          <!-- <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Dropdown Example
+    <span class="caret"></span></button> -->
+          <div class="glyphicon glyphicon-option-vertical dropdown-toggle cursor-pointer" data-toggle="dropdown"></div>
+          <ul class="dropdown-menu dropdown-logout">
+            <li>
+              <input type="file" class="input" id="myfile" file-model="myFile"><a href="">Upload Exchange Rate</a></li>
+            <li ng-click="logoutpage()"><a href="">Logout</a></li>
+          </ul>
+        </div>
+
+
+        <div id="mybutton" class="add-btn margin-top-20" ng-if="!readonly" ng-click="update(getExchangeRates)">
+
+          <img src="assets/images/ic_save.png" class="upload-img" />
+        </div>
+
+        <div id="mybutton" class="add-btn margin-top-20" ng-if="readonly" ng-click="changemode()">
+
+          <img src="assets/images/ic_edit.png" class="upload-img" />
+        </div>
+
+        <div id="cancelButton" class="add-btn margin-top-20" ng-if="!readonly" ng-click="cancelChanges()">
+
+          <img src="assets/images/ic_close_white.png" class="upload-img" />
+        </div>
+
+      </div>
+    </div>
+
+    <div id="successModal" ng-if="successModal">
+      <span>The Record(s) have been updated.</span>
+    </div>
+
+    <div id="failureModal">
+      <span>Changes not saved due to an Error</span>
+    </div>
+
+<div class="modal" id="errorFile" role="dialog">
+    <div class="errorDateModal modal-dialog modal-sm modal-position">
+      <div class="modal-content modal-style">
+        <div class="modal-body"> 
+          <div class="row text-center">
+          Please enter valid file name.
+          </div>                
+        </div> 
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default errorDateClose" data-dismiss="modal">Close</button>
+        </div>
+    </div>
+  </div>
+</div>  
+
+
+
+    <!--  Upload Button
+<div class="col-xs-12 text-center upload-btn">
+<div id="mybutton" class="add-btn margin-top-20">
+          <input type="file" id="myfile" file-model="myFile">
+          <img src="assets/images/upload.png" class="upload-img"/>
+        </div>
+</div>
+ -->
+
+
+
+    <!-- 
+Code for success/failure modal
+<div class="modal fade" id="successModal" role="dialog">
+    <div class="modal-dialog modal-sm modal-position">
+      <div class="modal-content modal-style">
+        <div class="modal-body"> 
+          <div class="row text-center">
+          The Record(s) have been updated.
+          </div>                
+        </div> 
+    </div>
+  </div>
+</div>  
+
+<div class="modal fade" id="failureModal" role="dialog">
+    <div class="modal-dialog modal-sm modal-position">
+      <div class="modal-content modal-style">
+        <div class="modal-body"> 
+          <div class="row text-center">
+          Changes not saved due to an Error
+          </div>                
+        </div> 
+    </div>
+  </div>
+</div>  -->
+
+    <!-- Edit Screen Modal
+<div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog modal-lg modal-position">
+      <div class="modal-content modal-style">
+        <div class="modal-header modal-head"> -->
+    <!-- 
+          <button type="button" class="close" data-dismiss="modal">&times;</button> -->
+    <!--   <h4 class="modal-title">Update Exchange Rate</h4>
+        </div>
+        <div class="modal-body">
+        <form>
+          <div class="row text-center">
+            <div class="col-xs-12">
+              <div class="col-xs-6" style="width: 48%">
+                <div class="styled-input-edit">
+                    <input type="text" class="editcredentials" ng-model="1" required />
+                    <label>Display Order</label>
+                    <span></span> </div>
+                  </div>
+            
+           
+         
+              <div class="col-xs-6" style="width: 48%; margin-left: 18px;
+    padding-right: 0px;">
+                <div class="styled-input-edit">
+                    <input type="text" class="editcredentials" ng-model="1.3030" required />
+                    <label>Buying Rate</label>
+                    <span></span> </div>
+                  </div>
+            </div>
+            </div>
+
+             <div class="row text-center">
+            <div class="col-xs-12">
+              <div class="col-xs-6" style="width: 48%">
+                <div class="styled-input-edit">
+                    <input type="text" class="editcredentials" ng-model="'USA'" required />
+                    <label>Country Name</label>
+                    <span></span> </div>
+                  </div>
+            
+           
+         
+              <div class="col-xs-6" style="width: 48%; margin-left: 18px;
+    padding-right: 0px;">
+                <div class="styled-input-edit">
+                    <input type="text" class="editcredentials" ng-model="1.4534" required />
+                    <label>Selling Rate</label>
+                    <span></span> </div>
+                  </div>
+            </div>
+            </div>
+
+             <div class="row text-center">
+            <div class="col-xs-12">
+              <div class="col-xs-6" style="width: 48%">
+                <div class="styled-input-edit">
+                    <input type="text" class="editcredentials" ng-model="'Dollar'" required />
+                    <label>Currency Name</label>
+                    <span></span> </div>
+                  </div>
+            
+           
+         
+              <div class="col-xs-6" style="width: 48%; margin-left: 18px;
+    padding-right: 0px;">
+                <div class="styled-input-edit">
+                    <input type="text" class="editcredentials" ng-model="'Cash'" required />
+                    <label>Currency Type</label>
+                    <span></span> </div>
+                  </div>
+            </div>
+            </div>
+
+             <div class="row text-center">
+            <div class="col-xs-12">
+              <div class="col-xs-6" style="width: 48%">
+                <div class="styled-input-edit">
+                    <input type="text" class="editcredentials" ng-model="'usa.jpg'" required />
+                    <label>Country Image</label>
+                    <span></span> </div>
+                  </div>
+            
+           
+         
+              <div class="col-xs-6" style="width: 48%; margin-left: 18px;
+    padding-right: 0px;">
+                <div class="styled-input-edit">
+                    <input type="text" class="editcredentials" ng-model="100" required />
+                    <label>Smallest Denomination</label>
+                    <span></span> </div>
+                  </div>
+            </div>
+            </div>
+
+             <div class="row text-center">
+            <div class="col-xs-12">
+              <div class="col-xs-6" style="width: 48%">
+                <div class="styled-input-edit">
+                    <input type="text" class="editcredentials" ng-model="'Additional Recommendation'" required />
+                    <label>Additional Message</label>
+                    <span></span> </div>
+                  </div>
+            
+           
+         
+              <div class="col-xs-6" style="width: 48%; margin-left: 18px;
+    padding-right: 0px;">
+                <div class="styled-input-edit">
+                   
+                    <label>Are Stocks available ?</label>
+                    <span></span> </div>
+
+                <input type="checkbox" name="checkboxG5" id="checkboxG5" class="css-checkbox" ng-model="insurer_check" ng-change="checkFalse(insurer_check)" /><label for="checkboxG5" class="css-label">SAME AS CLIENT</label>
+                  </div>
+            </div>
+            </div>
+
+
+
+
+
+
+        </div>
+        <div class="modal-footer" style="border-top: 1px solid #585858;">
+        <button type="button" class="btn btn-default buttons" data-dismiss="modal">SAVE</button>
+          <button type="button" class="btn btn-default buttons margin-right-15" data-dismiss="modal">CANCEL</button>
+        </div>
+         </form>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+
+  </div>

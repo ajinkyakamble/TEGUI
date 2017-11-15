@@ -1,0 +1,51 @@
+<div class="header-card row mdl-shadow--4dp">
+  <div class="container container-header">
+    <div class="row">
+      <div class="col-xs-4 header-title"></div>
+      <div class="col-xs-4 header-title">{{title}}</div>
+      <div class="col-xs-4 user-header-title">
+        <span class="user-name">{{firstname}} {{lastname}} </span>
+	  </div>
+    </div>
+
+
+    <!-- <div class="dropdown">
+			  <img src="assets/images/arrow_drop_down.png" ng-click="showlogout()"></div>
+			  <div class="dropdown-logout-content" ng-show="logout" >
+			    <span class="logout-text" ng-click="logoutpage()">LOGOUT</span>
+			  </div>
+			</div> -->
+
+   </div>
+</div>
+
+<div class="row no-margin background-blue">
+  <div class="tabs col-xs-12">
+    <div class="col-xs-3 no-padding text-center underline tabs-style-1" ng-class="{border: bordervalue1}" ng-click="changetab('orders')">
+      <span>FAST TRACK BRANCH COLLECTION</span>
+    </div>
+    <div class="col-xs-3 no-padding text-center underline tabs-style-4" ng-class="{border: bordervalue2}" ng-click="changetab('buybackorders')">
+      <span>BUY BACK AT BRANCH</span>
+    </div>
+    <div class="col-xs-3 no-padding text-center tabs-style-2" ng-class="{border: bordervalue3}" ng-hide="hideexchangerates" ng-click="changetab('exchangerates')">
+      <span>EXCHANGE RATES</span>
+    </div>
+    <div class="col-xs-3 no-padding tabs-style-3" ng-class="{border: bordervalue4}" ng-hide="hidebranchdetails" ng-click="changetab('branchdetails')">
+      <span>BRANCH DETAILS</span>
+    </div>
+        <div class="col-xs-3 no-padding tabs-style-5" ng-class="{border: bordervalue5}" ng-hide="hideschedulemanager" ng-click="changetab('schedulemanager')">
+      <span>SCHEDULE MANAGER</span>
+    </div>
+  </div>
+
+</div>
+
+<!--<div class="dropdown">
+			  <img src="assets/images/arrow_drop_down.png" ng-click="showlogout()"></div>
+			  <div class="dropdown-logout-content" ng-show="logout" >
+			    <span class="logout-text" ng-click="logoutpage()">LOGOUT</span>
+			  </div>
+	</div> -->
+
+
+<ui-view></ui-view>

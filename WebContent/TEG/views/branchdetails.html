@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<div class="col-xs-12 text-center upload-btn">
+  <div class="dropdown dropdown-orders" id="test">
+        <div class="glyphicon glyphicon-option-vertical dropdown-toggle" data-toggle="dropdown"></div>
+          <ul class="dropdown-menu dropdown-logout">
+            <li ng-click="logoutpage()"><a href="">Logout</a></li>
+          </ul>
+  </div>
+
+ 
+</div>
+
+
+
+<!--  <div>
+              <h4 class="md-subhead">Using $mdpDatePicker service</h4>
+              
+              <p ng-click="showTimePicker($event)">
+                {{ currentTime | date:'h:mm a'}}
+              </p>
+            </div>  -->
+            <div class="loader" ng-if="showloader"></div>
+
+  
+    <div class="row no-margin background" ng-hide="hidebranchdetails">
+    <div class="col-xs-12 table-style" ng-if="!showloader">
+
+    <div class="col-xs-12 no-margin branchtableHeader scrollbar no-padding" id="firstScroll-branch">
+      <table class="table branch-table-1">
+        <thead>
+          <tr>
+            <th>Branch Name</th>
+            <th>Monday</th>
+            <th>Tuesday</th>
+            <th>Wednesday</th>
+            <th>Thursday</th>
+            <th>Friday</th>
+            <th>Saturday</th>
+            <th ng-click="save(getBranchDetails)">Sunday</th>
+          </tr>
+        </thead>
+      </table>
+    </div>
+    <div class="col-xs-12 no-margin div-body-branch scrollbar white-background no-padding" id="secondScroll-branch">
+      <fieldset ng-disabled="readonly">
+        <table class="table branch-table margin-top-0">
+          <tbody>
+            <tr class="branch-table-row" ng-repeat="branch in getBranchDetails ">
+              <td>{{branch.branchName}}</td>
+              <td ng-repeat="branchTime in branch.branchTimeList">
+               <div>
+               
+               <input id="{{branchTime.id}}a" type="checkbox" ng-model="branchTime.available" ng-true-value="1" ng-false-value="0" ng-disabled="branchTime.flag" ng-checked="branchTime.available == 1" />
+                <label for="{{branchTime.id}}a" class="branch-checkbox" ></label>
+                
+                <span>Branch Open</span> </div> 
+                <div class="margin-top-5">
+                 <div>Branch Timings</div>
+               <span class="timing" style="color: {{branchTime.opencolors}}" ng-click="branchTime.available == 0 || branchTime.flag || !readonly && showTimePickerFrom(branchTime.openTime, branchTime.id)"> {{branchTime.openTime | tconvert}}</span>
+               to
+               <span class="timing" style="color: {{branchTime.closecolors}}" ng-click="branchTime.available == 0 || branchTime.flag || !readonly && showTimePickerTo(branchTime.closeTime, branchTime.id)"> {{branchTime.closeTime | tconvert}} </div> 
+               </span>
+
+               <div class="margin-top-5">
+                 <div>Order Timings</div>
+               <span class="timing" style="color: {{branchTime.openOrdercolors}}" ng-click="branchTime.available == 0 || branchTime.flag || !readonly && showOrderTimePickerFrom(branchTime.orderOpenTime, branchTime.id)"> {{branchTime.orderOpenTime | tconvert}}</span>
+               to
+               <span class="timing" style="color: {{branchTime.closeOrdercolors}}" ng-click="branchTime.available == 0 || branchTime.flag || !readonly && showOrderTimePickerTo(branchTime.orderCloseTime, branchTime.id)"> {{branchTime.orderCloseTime | tconvert}} </div> 
+               </span>
+              </td>
+            </tr>
+             
+
+
+
+          </tbody>
+
+        </table>
+      </fieldset>
+      </div>
+      </div>
+
+       <div id="mybutton1" class="add-btn margin-top-20" ng-if="!readonly" ng-click="updateMatrix(getBranchDetails)">
+
+  <img src="assets/images/ic_save.png" class="edit-btn" />
+        </div>
+  <div id="mybutton1" class="add-btn margin-top-20" ng-if="readonly" ng-click="changemode()">
+
+          <img src="assets/images/ic_edit.png" class="edit-btn" />
+  </div>
+
+          <div id="cancelButtonBranch" class="add-btn margin-top-20" ng-if="!readonly" ng-click="cancelChanges()">
+
+          <img src="assets/images/ic_close_white.png" class="branchcancel-btn" />
+        </div>
+
+</div>
+
+
+
+    <div id="successModalBranchDetails" >
+      <span>The Record(s) have been updated.</span>
+    </div>
+
+    <div id="failureModal">
+      <span>Changes not saved due to an Error</span>
+    </div> 
+  
+<div class="modal" id="errorTime" role="dialog">
+    <div class="errorDateModal modal-dialog modal-sm modal-position">
+      <div class="modal-content modal-style">
+        <div class="modal-body"> 
+          <div class="row text-center">
+          Please enter valid time.
+          </div>                
+        </div> 
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default errorDateClose" data-dismiss="modal">Close</button>
+        </div>
+    </div>
+  </div>
+</div>   
+
+<div class="modal" id="errorCloseTime" role="dialog">
+    <div class="errorDateModal modal-dialog modal-sm modal-position">
+      <div class="modal-content modal-style">
+        <div class="modal-body"> 
+          <div class="row text-center">
+           Invalid order time.
+          </div>                
+        </div> 
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default errorDateClose" data-dismiss="modal">Close</button>
+        </div>
+    </div>
+  </div>
+</div>  
+
+
+</body>
+</html>
+
+
+
+

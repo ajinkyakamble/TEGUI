@@ -1,0 +1,312 @@
+<body>
+<div class="col-xs-12 text-center upload-btn">
+  <div class="dropdown dropdown-orders" id="test">
+        <div class="glyphicon glyphicon-option-vertical dropdown-toggle" data-toggle="dropdown"></div>
+          <ul class="dropdown-menu dropdown-logout">
+            <li ng-click="logoutpage()"><a href="">Logout</a></li>
+          </ul>
+  </div>
+
+ 
+</div>
+
+
+
+<!--  <div>
+              <h4 class="md-subhead">Using $mdpDatePicker service</h4>
+              
+              <p ng-click="showTimePicker($event)">
+                {{ currentTime | date:'h:mm a'}}
+              </p>
+            </div>  -->
+            <div class="loader" ng-if="showloader"></div>
+
+    <input type="text" name="search" class="searchdate" ng-model="searchDate" placeholder="Search by date">
+    <span class="clearDatesearch" ng-if="searchDate" ng-click="clearDateSearch()">x</span>
+
+           <div id="mybutton2" class="add-btn margin-top-20" data-toggle="modal" data-target="#myModal" ng-click="clearModal()">
+
+  <img src="assets/images/ic_add.png" class="add-img" />
+        </div>
+    
+    <div class="row no-margin background" ng-hide="hidebranchdetails" ng-init="getSpecialBranchTime(); getBranchForAdd()">
+    <div class="col-xs-12 table-style" ng-if="!showloader">
+
+    
+    
+
+    <div class="col-xs-12 no-margin scheduleCard scrollbar no-padding" id="firstScroll-branch" ng-repeat="branchDate in getSpecialBranchTime | filter: searchDate">
+    <fieldset ng-disabled="branchDate.readonly">
+	    <div class="row col-xs-12 no-margin scheduleDateHeader">
+	    	<div class="col-xs-10 scheduleDateText">{{branchDate.displayDate}}</div>
+	    	<div class="col-xs-2 text-right">
+        <img src="assets/images/ic_delete.png" class="delete-img margin-right-10 cursor-pointer" 
+        ng-if="branchDate.readonly" data-toggle="modal" data-target="#{{$index}}date"
+        />
+
+        <img src="assets/images/ic_create.png" class="create-img" 
+        ng-if="branchDate.readonly" 
+        ng-click="changemode(branchDate.date)" />
+	    	</div>
+        <div class="col-xs-2 no-padding text-right">
+        <img src="assets/images/ic_delete.png" class="delete-img margin-right-10 cursor-pointer" 
+        ng-if="!branchDate.readonly" data-toggle="modal" data-target="#{{$index}}date" />
+
+        <img src="assets/images/ic_save1.png" class="create-img margin-right-10" 
+        ng-if="!branchDate.readonly" 
+        ng-click="updateSchedule(branchDate.date, branchDate.specialBranchTimeList, branchDate.date)" />
+
+        <img src="assets/images/ic_cancel.png" class="create-img" 
+        ng-if="!branchDate.readonly" 
+        ng-click="cancelEdit(branchDate.date)" />
+
+        </div>
+	    </div>
+    	<div class="col-xs-12 no-margin white-background no-padding">
+    		<table class="table scheduleCard-table margin-top-0">
+          <tbody>
+            <tr class="branch-table-row" ng-repeat="branchDetail in branchDate.specialBranchTimeList">
+              <td>{{branchDetail.branchName}} Branch</td>
+              <td>
+               <div>
+               
+               <input id="{{branchDetail.id}}a" type="checkbox" ng-model="branchDetail.available" ng-true-value="1" ng-false-value="0" ng-checked="branchDetail.available == 1" />
+                <label for="{{branchDetail.id}}a" class="branch-checkbox" ></label>
+                
+                <span>Branch Open</span> </div> 
+			  </td>
+			  <td>
+			  	      <div>Branch Timings</div>
+               <span class="timing-schedule" style="color: {{branchDetail.opencolors}}" ng-click="branchDetail.available == 0 || !branchDate.readonly && showTimePickerFrom(branchDetail.openTime, branchDetail.id)"> {{branchDetail.openTime | tconvert}} </span>
+               to
+               <span class="timing-schedule" style="color: {{branchDetail.closecolors}}" ng-click="branchDetail.available == 0 || !branchDate.readonly && showTimePickerTo(branchDetail.closeTime, branchDetail.id)"> {{branchDetail.closeTime | tconvert}}  </span>
+               
+			  </td>
+        <td>
+                <div>Order Timings</div>
+               <span class="timing-schedule" style="color: {{branchDetail.openOrdercolors}}" ng-click="branchDetail.available == 0 || !branchDate.readonly && showOrderTimePickerFrom(branchDetail.orderOpenTime, branchDetail.id)"> {{branchDetail.orderOpenTime | tconvert}} </span>
+               to
+               <span class="timing-schedule" style="color: {{branchDetail.closeOrdercolors}}" ng-click="branchDetail.available == 0 || !branchDate.readonly && showOrderTimePickerTo(branchDetail.orderCloseTime, branchDetail.id)"> {{branchDetail.orderCloseTime | tconvert}}  </span>
+               
+        </td>
+			  <td>
+			  	<div class="col-xs-12 no-padding">
+  
+  				<input type="text" class="form-control" id="comment" ng-model="branchDetail.comment">
+				</div>
+			  </td>
+        <td >
+          <div ng-if="!branchDate.readonly"  class="margin-top-15 cursor-pointer" data-toggle="modal" data-target="#{{$index}}entry"><img src="assets/images/ic_cancel_close.png" /></div>
+          <div class="modal" id="{{$index}}entry" role="dialog">
+          <div class="deleteModalSize modal-dialog modal-sm modal-position">
+            <div class="modal-content modal-style">
+              <div class="modal-body"> 
+                <div class="row text-center">
+                Are you sure you want to delete this entry? 
+                </div>                
+              </div> 
+              <div class="modal-footer deleteModal">
+                <button type="button" class="btn btn-default errorDateClose" data-dismiss="modal" ng-click="deleteCustomBranch(branchDetail.id, branchDate.date)" >Yes</button>
+                 <button type="button" class="btn btn-default errorDateClose" data-dismiss="modal">No</button>
+              </div>
+            </div>
+          </div>
+          </div>
+
+        </td>
+            </tr>
+
+          
+          </tbody>
+
+        </table>
+    	</div>
+    
+<!--     <div class="col-xs-12 no-margin div-body-branch scrollbar white-background no-padding" id="secondScroll-branch">
+      <fieldset ng-disabled="readonly">
+        <table class="table branch-table margin-top-0">
+          <tbody>
+            <tr class="branch-table-row" ng-repeat="branch in getBranchDetails ">
+              <td>{{branch.branchName}}</td>
+              <td ng-repeat="branchTime in branch.branchTimeList">
+               <div>
+               
+               <input id="{{branchTime.id}}a" type="checkbox" ng-model="branchTime.available" ng-true-value="1" ng-false-value="0" ng-checked="branchTime.available == 1" />
+                <label for="{{branchTime.id}}a" class="branch-checkbox" ></label>
+                
+                <span>Branch Open</span> </div> 
+                <div class="margin-top-5">
+               <span class="timing" style="color: {{branchTime.opencolors}}" ng-click="!readonly && showTimePickerFrom(branchTime.openTime, branchTime.id)"> {{branchTime.openTime | tconvert}}</span>
+               to
+               <span class="timing" style="color: {{branchTime.closecolors}}" ng-click="!readonly && showTimePickerTo(branchTime.closeTime, branchTime.id)"> {{branchTime.closeTime | tconvert}} </div> 
+               </span>
+              </td>
+            </tr>
+             
+
+
+
+          </tbody>
+
+        </table>
+      </fieldset>
+      </div> -->
+
+      </fieldset>
+      <div class="modal" id="{{$index}}date" role="dialog">
+          <div class="deleteModalSize modal-dialog modal-sm modal-position">
+            <div class="modal-content modal-style">
+              <div class="modal-body"> 
+                <div class="row text-center">
+                Are you sure you want to delete all the entries for this date ? 
+                </div>                
+              </div> 
+              <div class="modal-footer deleteModal">
+                <button type="button" class="btn btn-default errorDateClose" data-dismiss="modal" ng-click="deleteScheduleByDate(branchDate.date)" >Yes</button>
+                 <button type="button" class="btn btn-default errorDateClose" data-dismiss="modal">No</button>
+              </div>
+          </div>
+        </div>
+      </div>
+
+      </div>
+
+
+
+
+</div>
+
+
+<div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog modal-md modal-position">
+      <div class="modal-content modal-style">
+        <div class="modal-header modal-head">
+    
+          
+      <h4 class="modal-title">Create a Schedule</h4>
+        </div>
+        <div class="modal-body modal-height">
+        
+          <div class="row">
+            <div class="col-xs-6">
+                <div class="margin-bottom-20">
+                <input id="select" type="checkbox" ng-model="select" ng-true-value="1" ng-false-value="0" ng-change="selectAll(select)"/>
+                <label for="select" class="branch-checkbox" ></label>
+                <span class="selectall-color">SELECT ALL</span> 
+                </div> 
+
+                <div class="margin-top-5 addbox-color" ng-repeat="branch in getBranchDetails">
+                <input id="{{branch.branchId}}" type="checkbox" ng-model="branch.selected" ng-true-value="1" ng-false-value="0"/ ng-checked="branch.selected == 1 || select == 1">
+                <label for="{{branch.branchId}}" class="branch-checkbox" ></label>
+                <span>{{branch.branchName}}</span> 
+                </div> 
+
+
+            </div>
+            <div class="col-xs-6">
+
+            <div>Schedule Date</div>
+          <div><span class="margin-right-20 blue-text" ng-click="showDatePickerFrom($event)">{{currentDateFrom | date:'dd/MM/yy'}}</span>to<span class="margin-left-20 blue-text" ng-click="showDatePickerTo($event)">{{currentDateTo | date:'dd/MM/yy'}}</span>
+            </div>
+
+            <div class="margin-top-20">Branch Open</div>
+            <input id="branchopen" type="checkbox" ng-model="branchavailable" ng-true-value="1" ng-false-value="0" ng-checked="branchavailable == 1" />
+                <label for="branchopen" class="branch-checkbox margin-top-10" ></label>
+
+            <div class="margin-top-20">Branch Timings</div>
+          <div><span class="margin-right-20 blue-text" ng-click="showTimePickerBranchFrom($event)">{{currentTimeBranchFrom | date: 'shortTime'}}</span>to<span class="margin-left-20 blue-text" ng-click="showTimePickerBranchTo($event)">{{currentTimeBranchTo | date:'shortTime'}}</span>
+            </div>
+
+            <div class="margin-top-20">Order Timings</div>
+          <div><span class="margin-right-20 blue-text" ng-click="showTimePickerOrderFrom($event)">{{currentTimeOrderFrom | date: 'shortTime'}}</span>to<span class="margin-left-20 blue-text" ng-click="showTimePickerOrderTo($event)">{{currentTimeOrderTo | date:'shortTime'}}</span>
+            </div>
+
+             <div class="margin-top-20">Comments</div>
+               <textarea class="form-control" rows="2" id="textareavalue" ng-model="comment"></textarea> 
+            </div>  
+            </div>  
+
+             
+       <!--  <div class="row col-xs-12 modal-footer">
+        <button type="button" class="btn btn-default buttons" data-dismiss="modal">SAVE</button>
+          <button type="button" class="btn btn-default buttons margin-right-15" data-dismiss="modal">CANCEL</button>
+        </div> -->
+             <div class="row col-xs-12 text-right save-cancel addbox-color">
+            <span class="margin-right-20 cursor-pointer" data-dismiss="modal"><img src="assets/images/ic_closeModal.png" class="margin-right-10"/><span class="">CANCEL</span></span>
+
+            <span class="cursor-pointer" ng-click="addCustomBranches(getBranchDetails, branchavailable)"><img src="assets/images/done.png" class="margin-right-10"/></span><span class="cursor-pointer" ng-click="addCustomBranches(getBranchDetails, branchavailable)">SAVE</span>
+            </div>
+      </div>
+           
+    </div>
+  </div>
+</div>
+    
+<div class="modal" id="errorDate" role="dialog">
+    <div class="errorDateModal modal-dialog modal-sm modal-position">
+      <div class="modal-content modal-style">
+        <div class="modal-body"> 
+          <div class="row text-center">
+          Please enter valid date.
+          </div>                
+        </div> 
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default errorDateClose" data-dismiss="modal">Close</button>
+        </div>
+    </div>
+  </div>
+</div>  
+
+<div class="modal" id="errorTime" role="dialog">
+    <div class="errorDateModal modal-dialog modal-sm modal-position">
+      <div class="modal-content modal-style">
+        <div class="modal-body"> 
+          <div class="row text-center">
+          Please enter valid time.
+          </div>                
+        </div> 
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default errorDateClose" data-dismiss="modal">Close</button>
+        </div>
+    </div>
+  </div>
+</div>  
+
+<div class="modal" id="errorCloseTime" role="dialog">
+    <div class="errorDateModal modal-dialog modal-sm modal-position">
+      <div class="modal-content modal-style">
+        <div class="modal-body"> 
+          <div class="row text-center">
+          Invalid order time.
+          </div>                
+        </div> 
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default errorDateClose" data-dismiss="modal">Close</button>
+        </div>
+    </div>
+  </div>
+</div>  
+
+<div class="modal" id="errorDupBranch" role="dialog">
+    <div class="errorDateModal modal-dialog modal-sm modal-position">
+      <div class="modal-content modal-style">
+        <div class="modal-body"> 
+          <div class="row text-center">
+          Duplicate Branch Entry
+          </div>                
+        </div> 
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default errorDateClose" data-dismiss="modal">Close</button>
+        </div>
+    </div>
+  </div>
+</div> 
+
+
+
+
+</body>
+
+
+
+

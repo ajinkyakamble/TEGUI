@@ -1,0 +1,105 @@
+id(Unique Id),Display Order, Currency Name, Country Name, Buying Rate, Selling Rate,  Status, At Home, Flag Image, Currency Type, Smallest Note
+1,1,Euro 11,Europea,1.999999,1.165,1,0,Euro.jpg,Cash,5
+2,2,Dollars 11,USA,1.322751,1.275,1,0,Usa.jpg,Cash,1
+3,3,Yen,Japan,149.2537,141.5,1,0,Japan.jpg,Cash,1000
+4,4,Dollars,Australia,1.773049,1.6801,1,0,Australia.jpg,Cash,5
+5,5,Dollars,Canada,1.818182,1.7275,1,0,Canada.jpg,Cash,5
+6,6,Franc,Switzerland,1.32626,1.235,1,0,Swiss.jpg,Cash,10
+7,7,Koruna,Czech,33.1,30.8,1,0,Czech.jpg,Cash,100
+12,8,Rand,South Africa,17.9,16.7,1,0,SouthAfrica.jpg,Cash,10
+9,10,Kroner,Denmark,9.11,8.52,1,0,Denmark.jpg,Cash,50
+10,11,Kroner,Norway,11.44,10.84,1,0,Norway.jpg,Cash,50
+11,12,Kroner,Sweden,11.7,11.1,1,0,Sweden.jpg,Cash,20
+13,13,Baht,Thailand,46.2,43.15,1,0,Thailand.jpg,Cash,20
+14,14,Dirham,UAE,4.91,4.6,1,0,uae.jpg,Cash,5
+15,15,Dollars,East Carribean,3.66,3.31,1,0,ecarabian_cur.jpg,Cash,5
+16,16,Dollar,New Zealand,1.9125,1.813,1,0,nzland_cur.jpg,Cash,5
+17,17,Dollar,Singapore,1.8525,1.753,1,0,singapore_cur.jpg,Cash,2
+18,18,Dollars,Barbados,2.7,2.48,1,0,Barbados.jpg,Cash,2
+19,19,Dollars,Hongkong,10.35,9.78,1,0,HongKong.jpg,Cash,10
+20,20,Forint,Hungary,390,357,1,0,Hungary.jpg,Cash,500
+21,21,Kuna,Croatia,9.35,8.51,1,0,Croatia.jpg,Cash,10
+22,22,Lira,Turkey,4.65,4.41,1,0,Turkey.jpg,Cash,5
+23,23,Pesos,Mexico,25.65,23.3,1,0,Mexico.jpg,Cash,20
+25,25,Pound,Egypt,24.5,20.01,1,0,Egypt.jpg,Cash,5
+26,26,Ringgit,Malaysia,5.78,5.35,1,0,Malaysia.jpg,Cash,1
+27,27,Rupee,India,88.99,77.3,1,0,India.jpg,Cash,50
+72,28,Zloty,Poland,5.19,4.81,1,0,Poland.jpg,Cash,10
+73,29,Sheqel,Israel,4.92,4.45,1,0,israel.jpg,Cash,20
+74,30,Krona,Iceland,144.9,129.01,1,0,Iceland.jpg,Cash,500
+75,31,Dinar,Jordan,0.955,0.8875,1,0,jordan.jpg,Cash,1
+76,32,Dinar,Bahrain,0.506,0.471,1,0,Bahrain.jpg,Cash,1
+77,33,Lev,Bulgaria,2.44,2.23,1,0,bulgaria.jpg,Cash,2
+78,34,Real,Brazil,4.34,3.83,1,0,Brazil.jpg,Cash,1
+79,35,Peso,Chile,914,801,1,0,Chile.jpg,Cash,1000
+80,36,Yuan,China,9.32,8.6,1,0,China.jpg,Cash,5
+81,37,Peso,Dominican,63.99,57.75,1,0,Dominican.jpg,Cash,50
+82,38,Dollar,Fiji,2.87,2.53,1,0,Fiji.jpg,Cash,5
+83,39,Dalasi,Gambia,59.5,52,1,0,Gambia.jpg,Cash,50
+84,40,Rupiah,Indonesia,18290,16025,1,0,Indonesia.jpg,Cash,20000
+85,41,Dollar,Jamaica,175.9,157,1,0,jamaica.jpg,Cash,50
+86,42,Shilling,Kenya,139.5,127,1,0,kenya.jpg,Cash,50
+87,43,Won,South Korean,1550,1390,1,0,SKorea.jpg,Cash,1000
+88,44,Dinar,Kuwait,0.411,0.377,1,0,kuwait.jpg,Cash,1
+89,45,Lat,Latvia,0,0,1,0,latvia.jpg,Cash,5
+90,46,Lita,Lithuania,0,0,1,0,lithuania.jpg,Cash,5
+91,47,Dirham,Morocco,13.5,11.25,1,0,Morocco.jpg,Cash,20
+92,48,Rupee,Mauritius,47.5,42.65,1,0,Mauritius.jpg,Cash,20
+93,49,Rial,Oman,0.5199,0.482,1,0,Oman.jpg,Cash,5
+94,50,Peso,Phillipines,68.25,59.5,1,0,Phillipines.jpg,Cash,100
+95,51,Riyal,Qatar,4.87,4.53,1,0,Qatar.jpg,Cash,10
+96,52,Ruble,Russia,78.9,70.01,1,0,Russia.jpg,Cash,50
+97,53,Riyal,Saudi Arabia,5.1,4.67,1,0,Saudi.jpg,Cash,10
+99,55,Peso,Argentina,21.95,17.25,1,0,Argentina.jpg,Cash,5
+100,56,Rupee,Sri Lanka,207,178.5,1,0,SriLanka.jpg,Cash,100
+101,57,Kroons,Estonia,0,0,1,0,Estonia.jpg,Cash,2
+102,58,Pulas,Botswana,19.95,11.4,1,0,Botswana.jpg,Cash,50
+103,59,Dollar,Taiwan,41.25,36.5,1,0,Taiwan.jpg,Cash,100
+116,60,Dollar,Trinidad,9.18,8.2,1,0,Trinidad.jpg,Cash,1
+117,61,Leu,Rumania,5.66,5.12,1,0,Rumania.jpg,Cash,1
+118,62,Nuevo Sol,Peru,4.49,3.93,1,0,Peru.jpg,Cash,1
+119,63,Hryvna,Ukrain,38.99,30.01,1,0,Ukraine.jpg,Cash,1
+120,64,Dong,Vietnam,31590,27150,1,0,Vietnam.jpg,Cash,1
+108,65,Euro(TC),Europe,0,1.113,1,0,Euro.jpg,TC,50
+109,66,Yen(TC),Japan,0,0,1,0,Japan.jpg,TC,10000
+110,67,Franc(TC),Swiss,0,0,1,0,Swiss.jpg,TC,50
+111,68,Dollar(TC),Canadian,0,0,1,0,Canada.jpg,TC,50
+112,69,Dollar(TC),USA,1.362398,1.2213,1,0,Usa.jpg,TC,50
+113,70,Dollar(TC),Australia,0,1.655,1,0,Australia.jpg,TC,50
+121,71,Pound,Lebanon,2370,1680,1,0,Lebanese.jpg,Cash,10000
+122,72,Bolivar,Venezuela,0,0,1,0,Venezuela.jpg,Cash,20
+123,73,Rupee,Pakistan,164.48,120,1,0,Pakistan.jpg,Cash,500
+124,73,Taka,Bangladesh,125.36,88.5,1,0,Bangladesh.jpg,Cash,500
+125,74,Dollar,Bermuda,0,1.1,1,0,Bermuda.jpg,Cash,5
+126,74,Peso,Colombia,4190,3420,1,0,Colombia.jpg,Cash,20000
+127,75,Dinar,Tunisia,3.25,2.6,1,0,Tunisia.jpg,Cash,10
+128,75,Dollar,Bahamas,0,1.11,1,0,Bahamas.jpg,Cash,10
+129,76,Maraka,Bosnia Hercegovina<br>(we recommend Euro),2.9,2,1,0,Bosnia.jpg,Cash,10
+130,76,Rupee,Seychelles<br>(we recommend US Dollars),0,15.1,1,0,Seychelles.jpg,Cash,100
+131,77,Dollar,Namibia,19.3,14.8,1,0,Nambia.jpg,Cash,10
+132,77,Patacas,Macau<br>(we recommend US Dollars & Hong Kong Dollars),12.2,9,1,0,Macao.jpg,Cash,100
+133,78,Dollar,Belize,3.2,2.2,1,0,belize.jpg,Cash,0
+134,79,Boliviano,Bolivia<br>(we recommend US Dollars),10.6,7.6,1,0,bolivia.jpg,Cash,0
+135,80,Dollar,Brunei,1.99,1.6,1,0,brunei.jpg,Cash,0
+154,95,Schilling,Tanzania <br>(we recommend US Dollars or Euros),0,0,1,0,Tanzania.jpg,Cash,0
+136,83,Colon,Costa Rica,789,655,1,0,costa-rica.jpg,Cash,0
+153,94,Lilangeni,Swaziland<br>(we recommend US Dollars and may be South African Rand),0,0,1,0,Swaziland.jpg,Cash,0
+152,90,Dinar,Libya<br>(we recommend US Dollars and small notes possible),0,0,1,0,libya.jpg,Cash,0
+137,86,Quetzal,Guatemala,10.75,8.1,1,0,guatemala.jpg,Cash,0
+151,89,Cedi,Ghana<br>(we recommend US Dollars and small notes possible),0,0,1,0,ghana.jpg,Cash,0
+138,91,Rufiyaa,Maldives<br>(we recommend US Dollars),0,0,1,0,Maldives.jpg,Cash,0
+139,92,Rupee,Nepal<br>(we recommend US Dollars),157,115,1,0,Nepal.jpg,Cash,0
+140,93,Guarani,Paraguay,0,0,1,0,Paraguay.jpg,Cash,0
+155,96,Schilling,Uganda<br>(we recommend US Dollars and small notes possible),0,0,1,0,Uganda.jpg,Cash,0
+150,85,Sucre,Ecuador<br>(we recommend US Dollars and small notes possible),0,0,1,0,ecuador.jpg,Cash,0
+149,84,Peso,Cuba<br>(we recommend Euros),0,0,1,0,cuban.jpg,Cash,0
+148,82,CFA Franc,CFA<br>(we recommend US Dollars or Euros),0,0,1,0,CFA.jpg,Cash,0
+141,98,Pound,Syria<br>(we recommend US Dollars),0,0,1,0,Syrian.jpg,Cash,0
+142,99,Dinar,Serbia,199,125.1,1,0,Serbian.jpg,Cash,0
+143,100,Tenge,Kazakhstan<br>(we recommend US Dollars),0,0,1,0,Kazakhstan.jpg,Cash,0
+144,101,Afghani,Afghanistan<br>(we recommend US Dollars),0,0,1,0,afghanistan.jpg,Cash,0
+145,87,Dinar,Iraq<br>(we recommend US Dollars),0,0,1,0,iraqi.jpg,Cash,1000
+146,88,Rial,Iran,0,0,1,0,iran.jpg,Cash,0
+147,81,Riel,Cambodia<br>(we recommend US Dollars and small notes possible),0,0,1,0,Cambodia.jpg,Cash,0
+156,97,Kwacha,Zambia<br>(we recommend US Dollars and small notes possible),0,0,1,0,Zambia.jpg,Cash,0
+157,102,GBP,Sterling-Pound,1,1,1,0,,Cash,0.1
